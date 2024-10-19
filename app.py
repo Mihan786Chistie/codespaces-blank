@@ -8,17 +8,17 @@ app = Flask(__name__)
 
 @app.route('/htop')
 def htop():
-    # Get the full name (replace with your actual name)
+    
     name = "Syed Md Mihan Chistie"
     
-    # Get the system username
+    
     username = getpass.getuser()
     
-    # Get server time in IST
+    
     ist = pytz.timezone('Asia/Kolkata')
     server_time = datetime.now(ist).strftime('%Y-%m-%d %H:%M:%S %Z')
     
-    # Run top instead of htop (as htop might not be available in all environments)
+    
     try:
         top_output = subprocess.check_output(['top', '-bn1'], text=True)
     except subprocess.CalledProcessError:
